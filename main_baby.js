@@ -51,7 +51,7 @@ console.log("matches", matches)
         secondImageCompare = null;
         firstCardClicked = null;
         secondCardClicked = null;
-        }, 2500);
+        }, 500);
     
 
 console.log("SIC2", secondImageCompare)
@@ -73,14 +73,16 @@ console.log('FIC3',firstImageCompare);
         }
     }
 }
-
-
 // re-set the game and shuffle the cards
 
-fuction reSetGame() {
+function reSetGame() {
 
-    var picArray = [pic1, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10,
-        pic1, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10,];
+    var picArray = ['pic1', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9', 'pic10',
+        'pic1', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9', 'pic10'];
+
+        shuffle(picArray);
+
+        console.log(array)
 
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
@@ -94,14 +96,16 @@ fuction reSetGame() {
         }
         return array
     }
-
-for(var i = 1; i<=18, i++) {
-    var tempId = '#' + "card" + [i]
-    var tempClass = picArray[i],
-    $('tempId').addClass('tempClass');
-
+    
+for (var i = 1; i<=18; i++) {
+    var tempId = '#' + 'card' + [i]
+    var tempClass = picArray[i]
+    $(tempId).addClass(tempClass);
 
     }
 }
 
-reSetGame()
+
+if (matches === 9) {
+    reSetGame()
+}
