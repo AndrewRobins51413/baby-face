@@ -72,6 +72,9 @@ console.log("SIC3", secondImageCompare)
 console.log('FIC3',firstImageCompare);
         }
     }
+    if (matches === 9) {
+        reSetGame()
+    }
 }
 // re-set the game and shuffle the cards
 
@@ -82,19 +85,20 @@ function reSetGame() {
 
         shuffle(picArray);
 
-        console.log(array)
-
     function shuffle(array) {
-        var currentIndex = array.length, temporaryValue, randomIndex;
-        while (0 !== currentIndex) {
+        var currentIndex = picArray.length;
+        var randomIndex = temporaryValue;
+        var temporaryValue = randomIndex;
+        while (0 !== currentIndex) {   // run this loop until currentIndex === 0
             randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -=1;
-
+            currentIndex -=1;  //decrement currentIndex
+            console.log('randomIndex', randomIndex)
             temporaryValue = array[currentIndex];
             array[currentIndex] = array[randomIndex];
             array[randomIndex] = temporaryValue
         }
-        return array
+        console.log('reSetArray', picArray);
+        return picArray
     }
     
 for (var i = 1; i<=18; i++) {
@@ -106,6 +110,3 @@ for (var i = 1; i<=18; i++) {
 }
 
 
-if (matches === 9) {
-    reSetGame()
-}
