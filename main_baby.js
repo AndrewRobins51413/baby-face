@@ -33,10 +33,13 @@ else{
         secondImageCompare = $(event.currentTarget).find('.cardimage').css('background-image');
         click = click+1;
     }
+
 }
-console.log("firstCardClicked", firstCardClicked);
-console.log('firstCardId', firstCardId);
-console.log('secondCardId', secondCardId);
+    $("#button1").text(click,);
+    $("#button2").text('clicks');
+// console.log("firstCardClicked", firstCardClicked);
+// console.log('firstCardId', firstCardId);
+// console.log('secondCardId', secondCardId);
 
 if (firstCardClicked !== null && secondCardClicked !== null){
 
@@ -53,9 +56,8 @@ console.log("matches", matches)
         secondCardClicked = null;
         }, 500);
     
-
-console.log("SIC2", secondImageCompare)
-console.log('FIC2',firstImageCompare);
+        $("#button3").text(matches);
+        $("#button4").text('matches');
     }
     else{
         setTimeout(function(){
@@ -68,44 +70,63 @@ console.log('FIC2',firstImageCompare);
         secondCardClicked = null;
         }, 500);
         
-console.log("SIC3", secondImageCompare)
-console.log('FIC3',firstImageCompare);
         }
+        
+
+        var percentMatched = parseInt((matches/click)*100);
+
+        $("#button5").text(percentMatched);
+        $("#button6").text('% matched');
+
     }
     if (matches === 9) {
+        // clearBoard()
         reSetGame()
     }
 }
 // re-set the game and shuffle the cards
 
+// function clearBoard(){
+//     for(var i=1; i<=length.picArray; i++){
+//     var clearIndex = '#' + 'card' + [i]
+//     var picIndex = '.pic' + [i]
+//     $(clearIndex > '.cardimage').removeClass(picIndex);
+//     console.log('clearIndex', clearIndex);
+//     }
+// }
+
+
+
 function reSetGame() {
 
-    var picArray = ['pic1', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9', 'pic10',
+var picArray = ['pic1', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9', 'pic10',
         'pic1', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9', 'pic10'];
 
         shuffle(picArray);
 
-    function shuffle(array) {
-        var currentIndex = picArray.length;
-        var randomIndex = temporaryValue;
-        var temporaryValue = randomIndex;
-        while (0 !== currentIndex) {   // run this loop until currentIndex === 0
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -=1;  //decrement currentIndex
-            console.log('randomIndex', randomIndex)
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue
+        function shuffle(array) {
+            var currentIndex = picArray.length;
+            var randomIndex = temporaryValue;
+            var temporaryValue = randomIndex;
+            while (0 !== currentIndex) {   // run this loop until currentIndex === 0
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -=1;  //decrement currentIndex
+                console.log('randomIndex', randomIndex)
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue
+            }
+            console.log('reSetArray', picArray);
         }
-        console.log('reSetArray', picArray);
-        return picArray
-    }
-    
-for (var i = 1; i<=18; i++) {
-    var tempId = '#' + 'card' + [i]
-    var tempClass = picArray[i]
-    $(tempId).addClass(tempClass);
 
+
+
+for (var i = 1; i<=18; i++) {
+    var tempId = '#card' + [i]
+    console.log(tempId);
+    var tempClass = picArray[i]
+    $(tempId > 'div').find('.cardimage').addClass(tempClass);
+    $(tempId > 'div').find('.cardtop').removeClass('hidden')
     }
 }
 

@@ -8,8 +8,8 @@
 .stats {
     display:flex;
     border: 1px solid black;
-    height: 90%;
-    width: 30%;
+    height: 40px;
+    width: 100px;
     text-align: center;
 }
 
