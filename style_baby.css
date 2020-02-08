@@ -5,8 +5,14 @@
     justify-content: space-evenly;
 }
 
+.statbox{
+    display:flex;
+    flex-direction: row;
+
+}
 .stats {
     display:flex;
+    flex-direction: column;
     border: 1px solid black;
     height: 40px;
     width: 100px;
@@ -21,31 +27,25 @@
     justify-content: space-evenly;
 }
 
-/* .mainboard {
-    display: flex;
-    height: 90%;
-    width: 100%;
-    background-color: burlywood;
-} */
-
 .cardcontainer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     height: 90%;
     width: 100%;
     background-color: cornflowerblue;
-    flex-wrap: wrap;
     align-content: center;
+    border: 2px solid black;
 }
 
 .card {
     display: flex;
     width: 120px;
     height: 120px;
-    margin: 5px;
+    margin: 0px;
     justify-content: space-evenly;
     background-color: lightcyan;
-    padding-top: 2%;
+    padding-top: 0%;
 
 }
 .cardtop {
@@ -54,16 +54,7 @@
     height: 110px;
     object-fit: cover;
     vertical-align: middle;
-    /* transform-style: preserve-3d;
-    transform: rotateY(180deg);
-        &.card--flipped {
-    animation: cardFlip .275s 
-    forwards linear;
-    }
-        &.card--unflip {
-    animation: cardUnFlip .275s 
-    forwards linear;
-    }  */
+    border: 2px solid black;
 }
 
 .cardimage {
@@ -75,19 +66,19 @@
 
 }
 
-.pic1{
+    .pic1{
     background-image: url("images/pic1.jpg");
     background-position: center;
     background-size: cover;
 
     }
-.pic2{
+    .pic2{
     background-image: url("images/pic2.jpg");
     background-position: center;
     background-size: cover;
     
     }
-.pic3{
+    .pic3{
     background-image: url("images/pic3.jpg");
     background-position: center;
     background-size: cover;
