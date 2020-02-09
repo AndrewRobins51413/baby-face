@@ -8,6 +8,7 @@ var secondCardClicked = null;
 var firstImageCompare = null;
 var secondImageCompare = null;
 var firstCardId = null;
+var secondCardId = null;
 var matches = 0;
 var click = 0;
 var picArray = ['pic1', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9', 'pic10',
@@ -36,6 +37,7 @@ function cardClickHandler(event) {
             secondCardClicked.addClass('hidden');
             secondImageCompare = $(event.currentTarget).find('.cardimage').css('background-image');
             click = click + 1;
+            console.log('secondId', secondCardId);
         }
 
     }
@@ -48,6 +50,8 @@ function cardClickHandler(event) {
             $('#winmodal').removeClass('hidden');
             matches = matches + 1;
             console.log("matches", matches)
+            $('#' + firstCardId).off(); //makes flipped card unclickable
+            $('#' + secondCardId).off('click');
 
             setTimeout(function () {
                 $('#winmodal').addClass('hidden')
@@ -79,7 +83,7 @@ function cardClickHandler(event) {
         $("#button6").text('% matched');
 
     }
-    if (matches === 2) {        //win condition and initiate re-set
+    if (matches === 6) {        //win condition and initiate re-set
         setTimeout(reSetGame(), 1500);
     }
 }
@@ -107,7 +111,7 @@ function shuffle(array) {
 function dealCards() {
 
     for (var i = 0; i < picArray.length; i++) {
-        var tempId = '#card' + [i]
+        var tempId = 'card' + [i]
         var tempCardImage = $('<div>').addClass('cardimage').addClass(picArray[i])  //cardimage
         var tempCardTop = $('<div>').addClass('cardtop').addClass('pic2')  //cardtop - unplayed card
         var cardDiv = $('<div>',{id:tempId})   //card
@@ -116,4 +120,5 @@ function dealCards() {
         $('.cardcontainer').append(cardDiv) //assemble card container
 
     }
+    
 }
