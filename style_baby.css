@@ -1,10 +1,24 @@
+.toptitle{
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(116, 211, 214);
+    text-shadow: 2px 2px 7px #111111;
+    }
+body{
+    background-image: url("images/sun-beam-clouds.jpg");
+    background-size: cover;
+
+}
+
 .score {
     display: flex;
     flex-wrap: wrap;
-    background-color: bisque;
+    /* background-color: lightyellow; */
     justify-content: space-evenly;
     border: 3px solid black;
     border-radius: 3px;
+    opacity: 50%;
 }
 
 .statbox{
@@ -12,16 +26,27 @@
     flex-direction: row;
 
 }
-.stats {
+.statnumbers, .stats{
     display:flex;
     flex-direction: column;
     border: 1px solid black;
+    border-radius: 50%;
     height: 40px;
     width: 100px;
     text-align: center;
     justify-content: center;
+    
+}
+.stats {
+    background-color: lightskyblue;
+    opacity:100%;
+
 }
 
+.statnumbers {
+    background-color: lightseagreen;
+    
+}
 
 .title {
     display: flex;
@@ -38,7 +63,7 @@
     justify-content: space-evenly;
     height: 90%;
     width: 100%;
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
     align-content: center;
     border: 2px solid black;
 }
@@ -49,59 +74,59 @@
     height: 120px;
     margin: 0px;
     justify-content: space-evenly;
-    background-color: lightcyan;
+    background-color: lightyellow;
+    border: 2px solid black;
+    border-radius: 5%;
     padding-top: 0%;
+    margin: 3px;
 
 }
-.cardtop {
+.cardtop, .cardimage {
     position: absolute;
     width: 110px;
     height: 110px;
     object-fit: cover;
     vertical-align: middle;
-    border: 2px solid black;
+    margin-top: 5px;
+    border-radius: 4%;
+    
 }
 
 .cardimage {
-    position: absolute;
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    vertical-align: middle;
-
+    background-color: maroon;
 }
 
-}
+
     .pic1{
     background-image: url("images/pic1.jpg");
     background-position: center;
     background-size: cover;
-
     }
-    .pic2{
-    background-image: url("images/pic2.jpg");
-    background-position: center;
-    background-size: cover;
     
+    .pic2{
+        background-image: url("images/pic2.jpg");
+        background-position: center;
+        background-size: cover;
     }
+
     .pic3{
     background-image: url("images/pic3.jpg");
     background-position: center;
     background-size: cover;
-
     }
+
     .pic4{
     background-image: url("images/pic4.jpg");
     background-position: center;
     background-size: cover;
-
     }
+
     .pic5{
     background-image: url("images/pic5.jpg");
     background-position: center;
     background-size: cover;
-
     }
+
     .pic6{
     background-image: url("images/pic6.jpg");
     background-position: center;
@@ -132,6 +157,12 @@
     background-size: cover;
     }
 
+    .pic12{
+        background-image: url("images/pic12.jpg");
+        background-position: center;
+        background-size: cover;
+        
+        }
 
 .modal{
     height: 200px;
