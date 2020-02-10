@@ -9,40 +9,40 @@ var firstImageCompare = null;
 var secondImageCompare = null;
 var firstCardId = null;
 var secondCardId = null;
+var totalMatches = 0;
 var matches = 0;
 var click = 0;
 var picArray = ['pic1', 'pic2', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9',
     'pic1', 'pic2', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9'];
 
 function initializeApp() {
-    dealCards();
-    // $('.card').on('click', cardClickHandler);
-    
+    reSetGame();
 }
-// When game runs, the first round goes as it should, after the re-set class:hidden does not get applied and, 
-// the #cardId of the clicked is assigned to both the first clicked and second clicked cards.
-// so, to fix the game, the duplicate card Id and the un-hide-abiity of the cards in the sencond round needs fixing.
+
+function reSetGame() {
+    $('.cardcontainer').empty();
+    shuffle(picArray);
+    dealCards();
+}
 
 function cardClickHandler(event) {
 
     if (firstCardClicked === null) {   //checking to see if the first card has actually been clicked
-        console.log('FCC', firstCardClicked)
         firstCardClicked = $(event.currentTarget).find('.cardtop'); //assigns value to firstCardClicked
         firstCardId = $(event.currentTarget).attr('id');
         firstCardClicked.addClass('hidden');
-console.log('firstId', firstCardId);
         firstImageCompare = $(event.currentTarget).find('.cardimage').css('background-image');
         click = click + 1;
     }
     else {
         if (secondCardClicked === null) {
-            console.log('SCC', secondCardClicked)
+            
             secondCardClicked = $(event.currentTarget).find('.cardtop');
             secondCardId = $(event.currentTarget).attr('id');
             secondCardClicked.addClass('hidden');
             secondImageCompare = $(event.currentTarget).find('.cardimage').css('background-image');
             click = click + 1;
-            console.log('secondId', secondCardId);
+            
         }
 
     }
@@ -54,7 +54,7 @@ console.log('firstId', firstCardId);
         if (firstImageCompare === secondImageCompare && firstCardId !== secondCardId) {
             $('#winmodal').removeClass('hidden');
             matches = matches + 1;
-            console.log("matches", matches)
+            totalMatches = totalMatches + matches;
             $('#' + firstCardId).off(); //makes flipped card unclickable
             $('#' + secondCardId).off('click');
 
@@ -82,24 +82,18 @@ console.log('firstId', firstCardId);
         }
 
 
-        var percentMatched = parseInt((matches*2 / click) * 100);
-
-        $("#button5").text(percentMatched);
-        $("#button6").text('% matched');
+        //var percentMatched = parseInt((matches*2 / click) * 100);
+        
+        $("#button5").text(totalMatches);
+        $("#button6").text('Total Matches');
 
     }
     if (matches === 2) {        //win condition and initiate re-set
-        setTimeout(reSetGame(), 1500);
+        setTimeout(reSetGame(),1500);
     }
 }
 
-function reSetGame() {
 
-    $('.cardcontainer').empty();
-    shuffle(picArray);
-    dealCards();
-    $('.card').on('click', cardClickHandler);  //to return clickability to assembled card
-}
 
 function shuffle(array) {
     var currentIndex = picArray.length;
@@ -115,6 +109,7 @@ function shuffle(array) {
 }
 
 function dealCards() {
+    matches = 0; 
     for (var i = 0; i < picArray.length; i++) {
         var tempId = 'card' + [i]
         var tempCardImage = $('<div>').addClass('cardimage').addClass(picArray[i])  //cardimage
@@ -122,13 +117,16 @@ function dealCards() {
         var cardDiv = $('<div>',{id:tempId})   //card by #ID
         $(cardDiv).addClass('card').append(tempCardImage).append(tempCardTop); //assemble card div
         
-        
-        //$(cardDiv).on('click', cardClickHandler);  //to return clickability to assembled card
-
-
         $('.cardcontainer').append(cardDiv) //assemble card container
         
     }
+
+    firstImageCompare = null;
+    secondImageCompare = null;
+    firstCardClicked = null;
+    secondCardClicked = null;
+    firstCardId = null;
+    secondCardId = null;
     $('.card').on('click', cardClickHandler);
 
 }
