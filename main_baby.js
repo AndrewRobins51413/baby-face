@@ -11,27 +11,32 @@ var firstCardId = null;
 var secondCardId = null;
 var matches = 0;
 var click = 0;
-var picArray = ['pic1', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9', 'pic10',
-    'pic1', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9', 'pic10'];
+var picArray = ['pic1', 'pic2', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9',
+    'pic1', 'pic2', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9'];
 
 function initializeApp() {
     dealCards();
-    $('.card').on('click', cardClickHandler);
+    // $('.card').on('click', cardClickHandler);
     
 }
+// When game runs, the first round goes as it should, after the re-set class:hidden does not get applied and, 
+// the #cardId of the clicked is assigned to both the first clicked and second clicked cards.
+// so, to fix the game, the duplicate card Id and the un-hide-abiity of the cards in the sencond round needs fixing.
 
 function cardClickHandler(event) {
 
     if (firstCardClicked === null) {   //checking to see if the first card has actually been clicked
+        console.log('FCC', firstCardClicked)
         firstCardClicked = $(event.currentTarget).find('.cardtop'); //assigns value to firstCardClicked
         firstCardId = $(event.currentTarget).attr('id');
         firstCardClicked.addClass('hidden');
-
+console.log('firstId', firstCardId);
         firstImageCompare = $(event.currentTarget).find('.cardimage').css('background-image');
         click = click + 1;
     }
     else {
         if (secondCardClicked === null) {
+            console.log('SCC', secondCardClicked)
             secondCardClicked = $(event.currentTarget).find('.cardtop');
             secondCardId = $(event.currentTarget).attr('id');
             secondCardClicked.addClass('hidden');
@@ -83,7 +88,7 @@ function cardClickHandler(event) {
         $("#button6").text('% matched');
 
     }
-    if (matches === 6) {        //win condition and initiate re-set
+    if (matches === 2) {        //win condition and initiate re-set
         setTimeout(reSetGame(), 1500);
     }
 }
@@ -93,6 +98,7 @@ function reSetGame() {
     $('.cardcontainer').empty();
     shuffle(picArray);
     dealCards();
+    $('.card').on('click', cardClickHandler);  //to return clickability to assembled card
 }
 
 function shuffle(array) {
@@ -109,16 +115,20 @@ function shuffle(array) {
 }
 
 function dealCards() {
-
     for (var i = 0; i < picArray.length; i++) {
         var tempId = 'card' + [i]
         var tempCardImage = $('<div>').addClass('cardimage').addClass(picArray[i])  //cardimage
-        var tempCardTop = $('<div>').addClass('cardtop').addClass('pic2')  //cardtop - unplayed card
-        var cardDiv = $('<div>',{id:tempId})   //card
+        var tempCardTop = $('<div>').addClass('cardtop').addClass('pic12')  //cardtop - unplayed card
+        var cardDiv = $('<div>',{id:tempId})   //card by #ID
         $(cardDiv).addClass('card').append(tempCardImage).append(tempCardTop); //assemble card div
+        
+        
+        //$(cardDiv).on('click', cardClickHandler);  //to return clickability to assembled card
+
 
         $('.cardcontainer').append(cardDiv) //assemble card container
-
+        
     }
-    
+    $('.card').on('click', cardClickHandler);
+
 }
