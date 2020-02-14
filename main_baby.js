@@ -88,7 +88,7 @@ function cardClickHandler(event) {
         $("#button6").text('Total Matches');
 
     }
-    if (matches === 2) {        //win condition and initiate re-set
+    if (matches === 9) {        //win condition and initiate re-set
         setTimeout(reSetGame(),1500);
     }
 }
