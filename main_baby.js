@@ -9,7 +9,7 @@ var firstImageCompare = null;
 var secondImageCompare = null;
 var firstCardId = null;
 var secondCardId = null;
-var totalMatches = 0;
+var totalGames = 0;
 var matches = 0;
 var click = 0;
 var picArray = ['pic1', 'pic2', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9',
@@ -23,6 +23,7 @@ function reSetGame() {
     $('.cardcontainer').empty();
     shuffle(picArray);
     dealCards();
+    totalGames = totalGames + 1;
 }
 
 function cardClickHandler(event) {
@@ -54,7 +55,6 @@ function cardClickHandler(event) {
         if (firstImageCompare === secondImageCompare && firstCardId !== secondCardId) {
             $('#winmodal').removeClass('hidden');
             matches = matches + 1;
-            totalMatches = totalMatches + matches;
             $('#' + firstCardId).off(); //makes flipped card unclickable
             $('#' + secondCardId).off('click');
 
@@ -84,8 +84,8 @@ function cardClickHandler(event) {
 
         //var percentMatched = parseInt((matches*2 / click) * 100);
         
-        $("#button5").text(totalMatches);
-        $("#button6").text('Total Matches');
+        $("#button5").text(totalGames);
+        $("#button6").text('Game Number');
 
     }
     if (matches === 9) {        //win condition and initiate re-set
