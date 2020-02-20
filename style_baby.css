@@ -1,3 +1,14 @@
+
+body{
+    background-image: url("images/sun-beam-clouds.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    align-content: center;
+}
+.main{
+    align-content: center;
+}
 .toptitle{
     font-style: italic;
     font-weight: bold;
@@ -5,16 +16,20 @@
     color: rgb(116, 211, 214);
     text-shadow: 2px 2px 7px #111111;
     }
-body{
-    background-image: url("images/sun-beam-clouds.jpg");
-    background-size: cover;
 
+.bannertitle {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 10%;
+    justify-content: space-evenly;
+    font-size: larger;
+    font-style: initial;
 }
 
 .score {
     display: flex;
     flex-wrap: wrap;
-    /* background-color: lightyellow; */
     justify-content: space-evenly;
     border: 3px solid black;
     border-radius: 3px;
@@ -22,81 +37,177 @@ body{
 }
 
 .statbox{
-    display:flex;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-
 }
 .statnumbers, .stats{
-    display:flex;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     border: 1px solid black;
     border-radius: 50%;
     height: 40px;
-    width: 100px;
+    width: 80px;
     text-align: center;
-    justify-content: center;
-    
+    justify-content: center;    
 }
 .stats {
     background-color: lightskyblue;
     opacity:100%;
-
 }
 
 .statnumbers {
-    background-color: lightseagreen;
-    
+    background-color: lightseagreen;    
 }
 
-.title {
+
+/* .cardcontainer {
     display: flex;
-    width: 100%;
-    height: 10%;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    font-size: larger;
-    font-style: initial;
-}
+    height: 590px;
+    width: 80%;
+    align-content: center;
+    border: 2px solid black;
+} */
+
+/*********Full - size***********************/
+@media screen and (min-width:1000px){
 
 .cardcontainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    height: 90%;
-    width: 100%;
-    /* background-color: cornflowerblue; */
+    height: 590px;
+    width: 80%;
     align-content: center;
     border: 2px solid black;
 }
 
 .card {
-    display: flex;
-    width: 120px;
-    height: 120px;
-    margin: 0px;
+    display: block;
+    position: relative;
+    /* min-height: 60px;
+    min-width: 60px; */
+    width: 15%;
+    height: 30%;
+    align-content: center;
     justify-content: space-evenly;
     background-color: lightyellow;
     border: 2px solid black;
     border-radius: 5%;
-    padding-top: 0%;
-    margin: 3px;
-
+    padding-top: .5%;
+    margin: 0px;
 }
 .cardtop, .cardimage {
     position: absolute;
-    width: 110px;
-    height: 110px;
+    width: 170px;
+    height: 170px;
     object-fit: cover;
     vertical-align: middle;
-    margin-top: 5px;
-    border-radius: 4%;
-    
+    margin-top: 1%;
+    border-radius: 4%;   
 }
 
 .cardimage {
     background-color: maroon;
 }
+}
 
+/********* I-Pad size ***********************/
+@media screen and (max-width:1000){
 
+.cardcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 590px;
+    width: 80%;
+    align-content: center;
+    border: 2px solid black;
+}    
+.card {
+    display: block;
+    position: relative;
+    /* min-height: 60px;
+    min-width: 60px; */
+    width: 15%;
+    height: 30%;
+    align-content: center;
+    justify-content: space-evenly;
+    background-color: rgb(101, 211, 115);
+    border: 2px solid black;
+    border-radius: 5%;
+    padding-top: .5%;
+    margin: 0px;
+}
+.cardtop, .cardimage {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-top: 1%;
+    border-radius: 4%;   
+}
+
+.cardimage {
+    background-color: maroon;
+}
+}
+/********* phone size ***********************/
+@media screen and (max-width:350px){
+
+    .statbox{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+.cardcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 420px;
+    width: 99%;
+    align-content: center;
+    border: 2px solid black;
+}
+.card {
+    display: block;
+    position: relative;
+    /* min-height: 60px;
+    min-width: 60px; */
+    width: 20%;
+    height: 15%;
+    align-content: center;
+    justify-content: space-evenly;
+    background-color: rgb(212, 141, 195);
+    background-position: center;
+    border: 2px solid black;
+    border-radius: 5%;
+    padding-top: 0%;
+    margin: 2px;
+}
+.cardtop, .cardimage {
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 55px;
+    object-fit: cover;
+    /* vertical-align: middle;
+    margin-top: 3%; */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4%;   
+}
+
+.cardimage {
+    background-color: maroon;
+}
+}
+/*************** Classes for the card pictures ************/
     .pic1{
     background-image: url("images/pic1.jpg");
     background-position: center;
@@ -104,9 +215,9 @@ body{
     }
     
     .pic2{
-        background-image: url("images/pic2.jpg");
-        background-position: center;
-        background-size: cover;
+    background-image: url("images/pic2.jpg");
+    background-position: center;
+    background-size: cover;
     }
 
     .pic3{
@@ -158,11 +269,10 @@ body{
     }
 
     .pic12{
-        background-image: url("images/pic12.jpg");
-        background-position: center;
-        background-size: cover;
-        
-        }
+    background-image: url("images/pic12.jpg");
+    background-position: center;
+    background-size: cover;
+    }
 
 .modal{
     height: 200px;
