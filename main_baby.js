@@ -20,6 +20,7 @@ function initializeApp() {
 }
 
 function reSetGame() {
+    $('#winmodal').addClass('hidden');
     $('.cardcontainer').empty();
     shuffle(picArray);
     dealCards();
@@ -37,7 +38,6 @@ function cardClickHandler(event) {
     }
     else {
         if (secondCardClicked === null) {
-
             secondCardClicked = $(event.currentTarget).find('.cardtop');
             secondCardId = $(event.currentTarget).attr('id');
             secondCardClicked.addClass('hidden');
@@ -53,13 +53,13 @@ function cardClickHandler(event) {
     if (firstCardClicked !== null && secondCardClicked !== null) {
 
         if (firstImageCompare === secondImageCompare && firstCardId !== secondCardId) {
-            $('#winmodal').removeClass('hidden');
+            $('#matchmodal').removeClass('hidden');
             matches = matches + 1;
             $('#' + firstCardId).off(); //makes flipped card unclickable
             $('#' + secondCardId).off('click');
 
             setTimeout(function () {
-                $('#winmodal').addClass('hidden')
+                $('#matchmodal').addClass('hidden')
                 firstImageCompare = null;
                 secondImageCompare = null;
                 firstCardClicked = null;
@@ -89,6 +89,7 @@ function cardClickHandler(event) {
 
     }
     if (matches === 2) {        //win condition and initiate re-set
+        $('#winmodal').removeClass('hidden')
         setTimeout(reSetGame(),4500);
     }
 }
