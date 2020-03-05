@@ -156,7 +156,7 @@ main{
     background-color: maroon;
 }
 }
-/********* phone size ***********************/
+/********* phone size portrait*****************/
 @media screen and (max-width:375px){
 
     .statbox{
@@ -179,6 +179,54 @@ main{
     position: relative;
     width: 25%;
     height: 15%;
+    align-content: center;
+    justify-content: space-evenly;
+    background-color: rgb(212, 141, 195);
+    background-position: center;
+    border: 2px solid black;
+    border-radius: 5%;
+    padding-top: 0%;
+    margin: 2px;
+}
+.cardtop, .cardimage {
+    display: block;
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+    margin-left: 2%;
+    margin-top: 2%;
+    border-radius: 4%;
+}
+
+.cardimage {
+    background-color: maroon;
+}
+}
+
+/********* phone size landscape*****************/
+@media screen and (max-width:670px){
+
+    .statbox{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+.cardcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 75vh;
+    width: 99%;
+    align-content: center;
+    padding: 0%;
+}
+.card {
+    display: block;
+    position: relative;
+    width: 15%;
+    height: 25%;
     align-content: center;
     justify-content: space-evenly;
     background-color: rgb(212, 141, 195);
@@ -282,6 +330,8 @@ main{
     background-size: cover;
     }
 
+/********* Modals ***************/
+
 .modalwin{
     height: 600px;
     width: 600px;
@@ -318,11 +368,11 @@ main{
     margin: 80px;
 }
 
-/* .winner{
+.winner{
     position: absolute;
-    bottom: 10%;
-    left: 30%
-} */
+    top: 70%;
+    left: 20%
+}
 .hidden {
     display: none;
 }
