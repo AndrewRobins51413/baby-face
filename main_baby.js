@@ -37,13 +37,13 @@ function cardClickHandler(event) {
     }
     else {
         if (secondCardClicked === null) {
-            
+
             secondCardClicked = $(event.currentTarget).find('.cardtop');
             secondCardId = $(event.currentTarget).attr('id');
             secondCardClicked.addClass('hidden');
             secondImageCompare = $(event.currentTarget).find('.cardimage').css('background-image');
             click = click + 1;
-            
+
         }
 
     }
@@ -64,7 +64,7 @@ function cardClickHandler(event) {
                 secondImageCompare = null;
                 firstCardClicked = null;
                 secondCardClicked = null;
-            }, 500);
+            }, 2500);
 
             $("#button3").text(matches);
             $("#button4").text('matches');
@@ -83,13 +83,13 @@ function cardClickHandler(event) {
 
 
         //var percentMatched = parseInt((matches*2 / click) * 100);
-        
+
         $("#button5").text(totalGames);
         $("#button6").text('Game Number');
 
     }
-    if (matches === 9) {        //win condition and initiate re-set
-        setTimeout(reSetGame(),1500);
+    if (matches === 2) {        //win condition and initiate re-set
+        setTimeout(reSetGame(),4500);
     }
 }
 
@@ -109,16 +109,16 @@ function shuffle(array) {
 }
 
 function dealCards() {
-    matches = 0; 
+    matches = 0;
     for (var i = 0; i < picArray.length; i++) {
         var tempId = 'card' + [i]
         var tempCardImage = $('<div>').addClass('cardimage').addClass(picArray[i])  //cardimage
         var tempCardTop = $('<div>').addClass('cardtop').addClass('pic12')  //cardtop - unplayed card
         var cardDiv = $('<div>',{id:tempId})   //card by #ID
         $(cardDiv).addClass('card').append(tempCardImage).append(tempCardTop); //assemble card div
-        
+
         $('.cardcontainer').append(cardDiv) //assemble card container
-        
+
     }
 
     firstImageCompare = null;

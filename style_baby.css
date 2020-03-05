@@ -270,6 +270,12 @@ main{
     background-size: cover;
     }
 
+    .picsage{
+    background-image: url("images/sage_kids.jpeg");
+    background-position: center;
+    background-size: cover;
+    }
+
 .modal{
     height: 200px;
     width: 200px;
