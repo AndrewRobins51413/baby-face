@@ -276,13 +276,36 @@ main{
     background-size: cover;
     }
 
-.modal{
-    height: 200px;
-    width: 200px;
+    .picr-j {
+    background-image: url("images/r-and-j-leaves.jpg");
+    background-position: center;
+    background-size: cover;
+    }
+
+.modalwin{
+    height: 600px;
+    width: 600px;
     z-index: 1200;
+    color: white;
+    text-align: center;
+
+    font-size: 7em;
     border: 3px solid black;
     border-radius: 50%;
     background-color: chocolate;
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+
+.modalmatch{
+    height: 200px;
+    width: 200px;
+    z-index: 120;
+    border: 3px solid black;
+    border-radius: 50%;
+    background-color: rgb(236, 196, 17);
     position: fixed;
     top: 50%;
     left:50%;
@@ -295,7 +318,11 @@ main{
     margin: 80px;
 }
 
-
+/* .winner{
+    position: absolute;
+    bottom: 10%;
+    left: 30%
+} */
 .hidden {
     display: none;
 }
