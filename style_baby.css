@@ -157,7 +157,7 @@ main{
 }
 }
 /********* phone size portrait*****************/
-@media screen and (max-width:375px){
+@media screen and (max-width:375px) and (orientation: portrait){
 
     .statbox{
         display: flex;
@@ -205,7 +205,7 @@ main{
 }
 
 /********* phone size landscape*****************/
-@media screen and (max-width:670px){
+@media screen and (max-width:670px) and (orientation: landscape) {
 
     .statbox{
         display: flex;
@@ -338,8 +338,7 @@ main{
     z-index: 1200;
     color: white;
     text-align: center;
-
-    font-size: 7em;
+    font-size: 3em;
     border: 3px solid black;
     border-radius: 50%;
     background-color: chocolate;
@@ -353,6 +352,8 @@ main{
     height: 200px;
     width: 200px;
     z-index: 120;
+    color: white;
+    text-align: center;
     border: 3px solid black;
     border-radius: 50%;
     background-color: rgb(236, 196, 17);
@@ -361,18 +362,19 @@ main{
     left:50%;
     transform:translate(-50%, -50%);
 }
-.modal-content{
-    background-color: red;
-    font-size: larger;
-    text-shadow: cyan;
-    margin: 80px;
-}
 
 .winner{
     position: absolute;
-    top: 70%;
-    left: 20%
+    top: 50%;
+    left: 30%;
 }
+
+.matcher{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+}
+
 .hidden {
     display: none;
 }

@@ -1,7 +1,6 @@
 
 
 $(document).ready(initializeApp);
-console.log('initializeApp');
 
 var firstCardClicked = null;
 var secondCardClicked = null;
@@ -43,9 +42,7 @@ function cardClickHandler(event) {
             secondCardClicked.addClass('hidden');
             secondImageCompare = $(event.currentTarget).find('.cardimage').css('background-image');
             click = click + 1;
-
         }
-
     }
     $("#button1").text(click);
     $("#button2").text('clicks');
@@ -89,8 +86,9 @@ function cardClickHandler(event) {
 
     }
     if (matches === 2) {        //win condition and initiate re-set
-        $('#winmodal').removeClass('hidden')
-        setTimeout(reSetGame(),4500);
+        $("#winmodal").removeClass("hidden");
+        setTimeout(function () {
+            reSetGame()},4500);
     }
 }
 
