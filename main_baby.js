@@ -32,6 +32,7 @@ function cardClickHandler(event) {
         firstCardClicked = $(event.currentTarget).find('.cardtop'); //assigns value to firstCardClicked
         firstCardId = $(event.currentTarget).attr('id');
         firstCardClicked.addClass('hidden');
+        firstCardClicked.addClass('clicked');
         firstImageCompare = $(event.currentTarget).find('.cardimage').css('background-image');
         click = click + 1;
     }
@@ -40,6 +41,8 @@ function cardClickHandler(event) {
             secondCardClicked = $(event.currentTarget).find('.cardtop');
             secondCardId = $(event.currentTarget).attr('id');
             secondCardClicked.addClass('hidden');
+            secondCardClicked.addClass('clicked');
+            $('div.cardcontainer > div').addClass('clicked');
             secondImageCompare = $(event.currentTarget).find('.cardimage').css('background-image');
             click = click + 1;
         }
@@ -57,6 +60,7 @@ function cardClickHandler(event) {
 
             setTimeout(function () {
                 $('#matchmodal').addClass('hidden')
+                $('div.cardcontainer > div').removeClass('clicked');
                 firstImageCompare = null;
                 secondImageCompare = null;
                 firstCardClicked = null;
@@ -70,6 +74,7 @@ function cardClickHandler(event) {
             setTimeout(function () {
                 firstCardClicked.removeClass('hidden');
                 secondCardClicked.removeClass('hidden');
+                $('div.cardcontainer > div').removeClass('clicked');
                 firstImageCompare = null;
                 secondImageCompare = null;
                 firstCardClicked = null;
@@ -85,7 +90,7 @@ function cardClickHandler(event) {
         $("#button6").text('Game Number');
 
     }
-    if (matches === 2) {        //win condition and initiate re-set
+    if (matches === 9) {        //win condition and initiate re-set
         $("#winmodal").removeClass("hidden");
         setTimeout(function () {
             reSetGame()},4500);
