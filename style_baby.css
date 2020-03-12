@@ -375,6 +375,10 @@ main{
     left: 30%;
 }
 
+.clicked {
+    pointer-events: none;
+}
+
 .hidden {
     display: none;
 }
