@@ -130,8 +130,6 @@ main{
 .card {
     display: block;
     position: relative;
-    /* min-height: 60px;
-    min-width: 60px; */
     width: 25%;
     height: 15%;
     align-content: center;
@@ -157,7 +155,7 @@ main{
 }
 }
 /********* phone size portrait*****************/
-@media screen and (max-width:375px) and (orientation: portrait){
+@media screen and (max-width:380px) and (orientation: portrait){
 
     .statbox{
         display: flex;
@@ -205,7 +203,7 @@ main{
 }
 
 /********* phone size landscape*****************/
-@media screen and (max-width:670px) and (orientation: landscape) {
+@media screen and (max-width:740px) and (orientation: landscape) {
 
     .statbox{
         display: flex;
@@ -364,9 +362,19 @@ main{
 }
 
 .winner{
-    position: absolute;
+    position: fixed;
     top: 50%;
-    left: 30%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+}
+
+.reset{
+    color: rgb(2, 2, 2);
+    background-color: lightblue;
+    font-size: 1 em;
+    position: fixed;
+    left: 45%;
+    top: 70%
 }
 
 .matcher{
