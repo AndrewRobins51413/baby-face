@@ -92,8 +92,9 @@ function cardClickHandler(event) {
     }
     if (matches === 9) {        //win condition and initiate re-set
         $("#winmodal").removeClass("hidden");
-        setTimeout(function () {
-            reSetGame()},4500);
+        $("#resetButton").on("click", reSetGame);
+        // setTimeout(function () {
+        //     reSetGame()},4500);
     }
 }
 
