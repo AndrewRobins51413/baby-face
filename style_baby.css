@@ -16,6 +16,8 @@ main{
     text-align: center;
     color: rgb(116, 211, 214);
     text-shadow: 2px 2px 7px #111111;
+    margin: 5px;
+    padding: 5px;
     }
 
 .bannertitle {
