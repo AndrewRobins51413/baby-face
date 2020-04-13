@@ -104,6 +104,11 @@ main{
     margin-top: 1%;
     margin-left: 4%;
     border-radius: 4%;
+    hover: background-color:
+}
+
+.cardtop:hover {
+    background: rgba(212, 12, 12, 0);
 }
 
 .cardimage {
@@ -338,16 +343,24 @@ main{
     z-index: 1200;
     color: white;
     text-align: center;
-    font-size: 3em;
+    font-size: 4em;
     border: 3px solid black;
     border-radius: 50%;
-    background-color: chocolate;
     position: fixed;
     top: 50%;
     left:50%;
     transform:translate(-50%, -50%);
 }
 
+.modalbox{
+    height: 1.5em;
+    width: 4em;
+    background-color: rgb(211, 94, 247);
+    opacity: 90%;
+    border: 4px solid white;
+    border-radius: 50%;
+    padding-top: 20px;
+}
 .modalmatch{
     height: 200px;
     width: 200px;
