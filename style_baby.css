@@ -161,6 +161,11 @@ main{
     border-radius: 4%;
 }
 
+.cardtop:hover {
+    background: rgba(212, 12, 12, 0);
+    cursor: pointer;
+}
+
 .cardimage {
     background-color: maroon;
 }
