@@ -46,8 +46,8 @@ main{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    color: black;
-    text-shadow: 1px 1px aliceblue;
+    color: white;
+    text-shadow: 1px 1px rgb(8, 16, 24);
 
 }
 .statnumbers, .stats{
@@ -62,12 +62,12 @@ main{
     justify-content: center;
 }
 .stats {
-    background-color: lightskyblue;
+    background-color: rgb(3, 63, 100);
     opacity:100%;
 }
 
 .statnumbers {
-    background-color: lightseagreen;
+    background-color: rgb(3, 63, 100);
 }
 
 /*********Full - size***********************/
